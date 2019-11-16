@@ -17,6 +17,7 @@ export namespace Components {
     'match': MatchResults;
   }
   interface AppRoot {}
+  interface SimpleSlider {}
 }
 
 declare global {
@@ -39,10 +40,17 @@ declare global {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
   };
+
+  interface HTMLSimpleSliderElement extends Components.SimpleSlider, HTMLStencilElement {}
+  var HTMLSimpleSliderElement: {
+    prototype: HTMLSimpleSliderElement;
+    new (): HTMLSimpleSliderElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'simple-slider': HTMLSimpleSliderElement;
   }
 }
 
@@ -52,11 +60,13 @@ declare namespace LocalJSX {
     'match'?: MatchResults;
   }
   interface AppRoot {}
+  interface SimpleSlider {}
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-profile': AppProfile;
     'app-root': AppRoot;
+    'simple-slider': SimpleSlider;
   }
 }
 
@@ -69,6 +79,7 @@ declare module "@stencil/core" {
       'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
       'app-profile': LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+      'simple-slider': LocalJSX.SimpleSlider & JSXBase.HTMLAttributes<HTMLSimpleSliderElement>;
     }
   }
 }
