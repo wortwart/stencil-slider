@@ -1,53 +1,51 @@
-:host {
-	$slide-width: 500px;
+$slide-width: 500px;
 
-	figure {
-		position: relative;
-		width: $slide-width;
-		margin: 0 auto;
-		overflow: hidden;
+figure {
+	position: relative;
+	width: $slide-width;
+	margin: 0 auto;
+	overflow: hidden;
+}
 
-		ul {
-			display: flex;
-			margin: 0;
-			padding: 0;
-			list-style: none;
-			transition: transform .5s ease-in-out;
-		}
+ul {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	transition: transform .5s ease-in-out;
+}
+
+::slotted(li) {
+	flex: 1 0 auto;
+	width: $slide-width;
+	margin: auto;
+	height: 300px;
+	background-color: lightgreen;
+}
+
+::slotted(li:nth-child(even)) {
+	background-color: lightblue;
+	height: 400px;
+}
+
+button {
+	position: absolute;
+	top: calc(50% - 32px);
+	padding: 20px;
+	font-size: 20px;
+	line-height: 20px;
+	opacity: .5;
+
+	&:hover {
+		opacity: 1;
+		transition: opacity .5s ease-in-out;
 	}
 
-	::slotted(li) {
-		flex: 1 0 auto;
-		width: $slide-width;
-		margin: auto;
-		height: 300px;
-		background-color: lightgreen;
+	&[disabled], &[disabled]:hover {
+		opacity: .1;
 	}
 
-	::slotted(li:nth-child(even)) {
-		background-color: lightblue;
-		height: 400px;
-	}
-
-	.control {
-		position: absolute;
-		top: calc(50% - 32px);
-		padding: 20px;
-		font-size: 20px;
-		line-height: 20px;
-		opacity: .5;
-
-		&:hover {
-			opacity: 1;
-			transition: opacity .5s ease-in-out;
-		}
-
-		&[disabled], &[disabled]:hover{
-			opacity: .1;
-		}
-
-		&.control_next {
-			right: 0;
-		}
+	&.btn_next {
+		right: 0;
 	}
 }
