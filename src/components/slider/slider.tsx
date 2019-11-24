@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, Element, State, h } from '@stencil/core';
 
 @Component({
   tag: 'simple-slider',
@@ -6,11 +6,21 @@ import { Component, h } from '@stencil/core';
   shadow: true
 })
 export class Slider {
-	private currentSlideNumber: number = 0;
+	@Element() el: HTMLElement;
+	@State() currentSlideNumber: number = 0;
+	private sliderList: HTMLElement;
 	private slidesCount: number = 0;
+	private slideWidth: number = 0;
 
 	componentDidLoad() {
-		this.slidesCount = document.querySelectorAll('li').length;
+		this.sliderList = this.el.shadowRoot.querySelector('ul');
+		const slides = this.el.querySelectorAll('li');
+		this.slidesCount = slides.length;
+		this.slideWidth = (slides[0] as HTMLElement).offsetWidth;
+	}
+
+	componentDidUpdate() {
+		this.sliderList.style.transform = `translateX(${this.currentSlideNumber * this.slideWidth * -1}px)`;
 	}
 
 	slide(amount: number = 1) {
@@ -18,7 +28,6 @@ export class Slider {
 		if (slideTo < 0 || slideTo >= this.slidesCount)
 			return;
 		this.currentSlideNumber = slideTo;
-		console.log(this.currentSlideNumber);
 	}
 
   render() {
