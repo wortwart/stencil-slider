@@ -30,6 +30,7 @@ ul {
 
 button {
 	position: absolute;
+	z-index: 1;
 	top: calc(50% - 32px);
 	padding: 20px;
 	font-size: 20px;
