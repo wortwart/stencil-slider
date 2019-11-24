@@ -6,8 +6,19 @@ import { Component, h } from '@stencil/core';
   shadow: true
 })
 export class Slider {
+	private currentSlideNumber: number = 0;
+	private slidesCount: number = 0;
+
+	componentDidLoad() {
+		this.slidesCount = document.querySelectorAll('li').length;
+	}
+
 	slide(amount: number = 1) {
-		console.log(amount);
+		let slideTo = this.currentSlideNumber + amount;
+		if (slideTo < 0 || slideTo >= this.slidesCount)
+			return;
+		this.currentSlideNumber = slideTo;
+		console.log(this.currentSlideNumber);
 	}
 
   render() {
