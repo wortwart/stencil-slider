@@ -1,9 +1,9 @@
 import { Component, Element, Prop, State, h } from '@stencil/core';
 
 @Component({
-  tag: 'simple-slider',
-  styleUrl: 'slider.scss',
-  shadow: true
+	tag: 'simple-slider',
+	styleUrl: 'slider.scss',
+	shadow: true
 })
 export class Slider {
 	@Element() el: HTMLElement;
@@ -51,17 +51,17 @@ export class Slider {
 			this.controls[type].disabled = !enabled;
 	}
 
-  render() {
-    return (
-      <figure>
+	render() {
+		return (
+			<figure>
 				<button type="button" class="btn_next" onClick={this.slide.bind(this, 1)}>&gt;</button>
 				<button type="button" class="btn_prev" onClick={this.slide.bind(this, -1)}>&lt;</button>
 				<ul>
 					<slot/>
 				</ul>
 				{this.showStatus && <figcaption>Slide {this.currentSlideNumber + 1}/{this.slidesCount}</figcaption>}
-      </figure>
-    );
-  }
+			</figure>
+		);
+	}
 
 }
