@@ -11,16 +11,24 @@ export class Slider {
 	private sliderList: HTMLElement;
 	private slidesCount: number = 0;
 	private slideWidth: number = 0;
+	private controls: object = {
+		prev: null,
+		next: null
+	};
 
 	componentDidLoad() {
 		this.sliderList = this.el.shadowRoot.querySelector('ul');
 		const slides = this.el.querySelectorAll('li');
 		this.slidesCount = slides.length;
 		this.slideWidth = (slides[0] as HTMLElement).offsetWidth;
+		for (let type in this.controls)
+			this.controls[type] = this.el.shadowRoot.querySelector('.btn_' + type);
+		this.updateControls();
 	}
 
 	componentDidUpdate() {
 		this.sliderList.style.transform = `translateX(${this.currentSlideNumber * this.slideWidth * -1}px)`;
+		this.updateControls();
 	}
 
 	slide(amount: number = 1) {
@@ -28,6 +36,18 @@ export class Slider {
 		if (slideTo < 0 || slideTo >= this.slidesCount)
 			return;
 		this.currentSlideNumber = slideTo;
+	}
+
+	updateControls() {
+		console.log(this.currentSlideNumber)
+		this.switchControl('prev', (this.currentSlideNumber === 0)? false : true);
+		this.switchControl('next', (this.currentSlideNumber === this.slidesCount - 1)? false : true);
+	}
+
+	switchControl(type: string, enabled: boolean) {
+		console.log(type, enabled)
+		if (this.controls[type])
+			this.controls[type].disabled = !enabled;
 	}
 
   render() {
