@@ -17,7 +17,9 @@ export namespace Components {
     'match': MatchResults;
   }
   interface AppRoot {}
-  interface SimpleSlider {}
+  interface SimpleSlider {
+    'showStatus': boolean;
+  }
 }
 
 declare global {
@@ -60,7 +62,9 @@ declare namespace LocalJSX {
     'match'?: MatchResults;
   }
   interface AppRoot {}
-  interface SimpleSlider {}
+  interface SimpleSlider {
+    'showStatus'?: boolean;
+  }
 
   interface IntrinsicElements {
     'app-home': AppHome;

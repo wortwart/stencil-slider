@@ -1,4 +1,4 @@
-import { Component, Element, State, h } from '@stencil/core';
+import { Component, Element, Prop, State, h } from '@stencil/core';
 
 @Component({
   tag: 'simple-slider',
@@ -7,9 +7,10 @@ import { Component, Element, State, h } from '@stencil/core';
 })
 export class Slider {
 	@Element() el: HTMLElement;
+	@Prop() showStatus: boolean = false;
 	@State() currentSlideNumber: number = 0;
+	@State() slidesCount: number = 0;
 	private sliderList: HTMLElement;
-	private slidesCount: number = 0;
 	private slideWidth: number = 0;
 	private controls: object = {
 		prev: null,
@@ -58,7 +59,7 @@ export class Slider {
 				<ul>
 					<slot/>
 				</ul>
-				<p>Test!</p>
+				{this.showStatus && <figcaption>Slide {this.currentSlideNumber + 1}/{this.slidesCount}</figcaption>}
       </figure>
     );
   }
