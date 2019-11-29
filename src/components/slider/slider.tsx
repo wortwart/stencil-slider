@@ -40,13 +40,11 @@ export class Slider {
 	}
 
 	updateControls() {
-		console.log(this.currentSlideNumber)
 		this.switchControl('prev', (this.currentSlideNumber === 0)? false : true);
 		this.switchControl('next', (this.currentSlideNumber === this.slidesCount - 1)? false : true);
 	}
 
 	switchControl(type: string, enabled: boolean) {
-		console.log(type, enabled)
 		if (this.controls[type])
 			this.controls[type].disabled = !enabled;
 	}
