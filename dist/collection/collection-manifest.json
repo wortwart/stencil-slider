@@ -1,0 +1,33 @@
+{
+  "entries": [
+    "components\\slider\\slider.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.8.1",
+    "typescriptVersion": "3.7.2"
+  },
+  "collections": [
+    {
+      "name": "@stencil/router",
+      "tags": [
+        "stencil-async-content",
+        "stencil-route",
+        "stencil-route-link",
+        "stencil-route-switch",
+        "stencil-route-title",
+        "stencil-router",
+        "stencil-router-prompt",
+        "stencil-router-redirect"
+      ]
+    },
+    {
+      "name": "@stencil/state-tunnel",
+      "tags": [
+        "context-consumer"
+      ]
+    }
+  ],
+  "bundles": [],
+  "global": "global\\app.js"
+}

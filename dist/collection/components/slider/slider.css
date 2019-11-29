@@ -1,0 +1,47 @@
+figure {
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 0.5s ease-in-out;
+}
+
+::slotted(li) {
+  flex: 1 0 auto;
+  width: 500px;
+  margin: auto;
+  height: 300px;
+  background-color: lightgreen;
+}
+
+::slotted(li:nth-child(even)) {
+  background-color: lightblue;
+  height: 400px;
+}
+
+button {
+  position: absolute;
+  z-index: 1;
+  top: calc(50% - 32px);
+  padding: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  opacity: 0.5;
+}
+button:hover {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+button[disabled], button[disabled]:hover {
+  opacity: 0.25;
+}
+button.btn_next {
+  right: 0;
+}
