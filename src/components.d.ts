@@ -7,16 +7,9 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-import {
-  MatchResults,
-} from '@stencil/router';
+
 
 export namespace Components {
-  interface AppHome {}
-  interface AppProfile {
-    'match': MatchResults;
-  }
-  interface AppRoot {}
   interface SimpleSlider {
     'showStatus': boolean;
   }
@@ -25,51 +18,22 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {}
-  var HTMLAppHomeElement: {
-    prototype: HTMLAppHomeElement;
-    new (): HTMLAppHomeElement;
-  };
-
-  interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {}
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
-  };
-
-  interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
-  var HTMLAppRootElement: {
-    prototype: HTMLAppRootElement;
-    new (): HTMLAppRootElement;
-  };
-
   interface HTMLSimpleSliderElement extends Components.SimpleSlider, HTMLStencilElement {}
   var HTMLSimpleSliderElement: {
     prototype: HTMLSimpleSliderElement;
     new (): HTMLSimpleSliderElement;
   };
   interface HTMLElementTagNameMap {
-    'app-home': HTMLAppHomeElement;
-    'app-profile': HTMLAppProfileElement;
-    'app-root': HTMLAppRootElement;
     'simple-slider': HTMLSimpleSliderElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface AppHome {}
-  interface AppProfile {
-    'match'?: MatchResults;
-  }
-  interface AppRoot {}
   interface SimpleSlider {
     'showStatus'?: boolean;
   }
 
   interface IntrinsicElements {
-    'app-home': AppHome;
-    'app-profile': AppProfile;
-    'app-root': AppRoot;
     'simple-slider': SimpleSlider;
   }
 }
@@ -80,9 +44,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-      'app-profile': LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
-      'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
       'simple-slider': LocalJSX.SimpleSlider & JSXBase.HTMLAttributes<HTMLSimpleSliderElement>;
     }
   }
