@@ -1,8 +1,11 @@
 {
-  "name": "slider",
-  "private": true,
-  "version": "0.0.1",
-  "description": "Stencil App Starter",
+  "name": "stencil-slider",
+  "version": "1.0.0",
+  "description": "Simple slider web component built with StencilJS",
+  "repository": {
+  	"type": "git",
+  	"url": "https://github.com/wortwart/stencil-slider.git"
+  },
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
