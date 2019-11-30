@@ -9,7 +9,8 @@ export class Slider {
 	@Element() el: HTMLElement;
 	@Prop() showStatus: boolean = false;
 	@State() currentSlideNumber: number = 0;
-	@State() slidesCount: number = 0;
+	private slidesCount: number = 0;
+	private slides: NodeList;
 	private sliderList: HTMLElement;
 	private slideWidth: number = 0;
 	private controls: object = {
@@ -17,11 +18,14 @@ export class Slider {
 		next: null
 	};
 
+	componentWillLoad() {
+		this.slides = this.el.querySelectorAll('li');
+		this.slidesCount = this.slides.length;
+	}
+
 	componentDidLoad() {
 		this.sliderList = this.el.shadowRoot.querySelector('ul');
-		const slides = this.el.querySelectorAll('li');
-		this.slidesCount = slides.length;
-		this.slideWidth = (slides[0] as HTMLElement).offsetWidth;
+		this.slideWidth = (this.slides[0] as HTMLElement).offsetWidth;
 		for (let type in this.controls)
 			this.controls[type] = this.el.shadowRoot.querySelector('.btn_' + type);
 		this.updateControls();

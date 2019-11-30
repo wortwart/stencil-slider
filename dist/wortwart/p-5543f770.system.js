@@ -1,0 +1,1 @@
+System.register(["./p-6cd318bb.system.js"],(function(){"use strict";var t,e;return{setters:[function(s){t=s.p;e=s.b}],execute:function(){t().then((function(t){return e([["p-nnqfvhuf.system",[[1,"simple-slider",{showStatus:[4,"show-status"],currentSlideNumber:[32]}]]]],t)}))}}}));

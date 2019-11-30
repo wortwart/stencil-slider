@@ -1,4 +1,4 @@
-import { r as registerInstance, h, g as getElement } from './core-ef8340f8.js';
+import { r as registerInstance, h, g as getElement } from './core-822883bd.js';
 
 const Slider = class {
     constructor(hostRef) {
@@ -12,11 +12,13 @@ const Slider = class {
             next: null
         };
     }
+    componentWillLoad() {
+        this.slides = this.el.querySelectorAll('li');
+        this.slidesCount = this.slides.length;
+    }
     componentDidLoad() {
         this.sliderList = this.el.shadowRoot.querySelector('ul');
-        const slides = this.el.querySelectorAll('li');
-        this.slidesCount = slides.length;
-        this.slideWidth = slides[0].offsetWidth;
+        this.slideWidth = this.slides[0].offsetWidth;
         for (let type in this.controls)
             this.controls[type] = this.el.shadowRoot.querySelector('.btn_' + type);
         this.updateControls();

@@ -10,11 +10,13 @@ export class Slider {
             next: null
         };
     }
+    componentWillLoad() {
+        this.slides = this.el.querySelectorAll('li');
+        this.slidesCount = this.slides.length;
+    }
     componentDidLoad() {
         this.sliderList = this.el.shadowRoot.querySelector('ul');
-        const slides = this.el.querySelectorAll('li');
-        this.slidesCount = slides.length;
-        this.slideWidth = slides[0].offsetWidth;
+        this.slideWidth = this.slides[0].offsetWidth;
         for (let type in this.controls)
             this.controls[type] = this.el.shadowRoot.querySelector('.btn_' + type);
         this.updateControls();
@@ -78,8 +80,7 @@ export class Slider {
         }
     }; }
     static get states() { return {
-        "currentSlideNumber": {},
-        "slidesCount": {}
+        "currentSlideNumber": {}
     }; }
     static get elementRef() { return "el"; }
 }

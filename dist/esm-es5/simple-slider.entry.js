@@ -1,4 +1,4 @@
-import { r as registerInstance, h, g as getElement } from './core-ef8340f8.js';
+import { r as registerInstance, h, g as getElement } from './core-822883bd.js';
 var Slider = /** @class */ (function () {
     function Slider(hostRef) {
         registerInstance(this, hostRef);
@@ -11,11 +11,13 @@ var Slider = /** @class */ (function () {
             next: null
         };
     }
+    Slider.prototype.componentWillLoad = function () {
+        this.slides = this.el.querySelectorAll('li');
+        this.slidesCount = this.slides.length;
+    };
     Slider.prototype.componentDidLoad = function () {
         this.sliderList = this.el.shadowRoot.querySelector('ul');
-        var slides = this.el.querySelectorAll('li');
-        this.slidesCount = slides.length;
-        this.slideWidth = slides[0].offsetWidth;
+        this.slideWidth = this.slides[0].offsetWidth;
         for (var type in this.controls)
             this.controls[type] = this.el.shadowRoot.querySelector('.btn_' + type);
         this.updateControls();
