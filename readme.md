@@ -8,9 +8,9 @@ See https://stenciljs.com/docs/distribution. This repository contains a `dist` f
 
 ## API
 
-`<simple-slider>` - custom element container for the slider element; uses Shadow DOM.
-  `show-status` - optional attribute; the slider shows a caption with the slide number indicator if set.
-  element content - `<li>` items with the content of each slider.
+- `<simple-slider>` - custom element container for the slider element; uses Shadow DOM.
+  - `show-status` - optional attribute; the slider shows a caption with the slide number indicator if set.
+  - element content - `<li>` items with the content of each slider.
 
 ## About StencilJS
 
