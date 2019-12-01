@@ -1,4 +1,18 @@
-# Stencil App Starter
+# stencil-slider
+
+This project creates a slider web component with [StencilJS](https://stenciljs.com/). It is a demo for a tutorial article in [c't Magazin](https://ct.de/), to be released in early 2020.
+
+## Installation
+
+See https://stenciljs.com/docs/distribution. This repository contains a `dist` folder with the production-built code ready to embed - or you can build `src` yourself.
+
+## API
+
+`<simple-slider>` - custom element container for the slider element; uses Shadow DOM.
+  `show-status` - optional attribute; the slider shows a caption with the slide number indicator if set.
+  element content - `<li>` items with the content of each slider.
+
+## About StencilJS
 
 Stencil is a compiler for building fast web apps using Web Components.
 
@@ -8,7 +22,7 @@ Stencil components are just Web Components, so they work in any major framework 
 
 Stencil also enables a number of key capabilities on top of Web Components, in particular Server Side Rendering (SSR) without the need to run a headless browser, pre-rendering, and objects-as-properties (instead of just strings).
 
-## Getting Started
+### Getting Started
 
 To start a new project using Stencil, clone this repo to a new directory:
 
